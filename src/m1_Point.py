@@ -38,6 +38,8 @@ def main():
 #
 #   Run the program and correct any syntax (notational) errors.
 # ----------------------------------------------------------------------
+
+
 class Point(object):
     """ Represents a 2d point in x y space. """
     def __init__(self, x, y):
@@ -73,7 +75,7 @@ class Point(object):
         return self.moveCounter
 
     def get_distance_from(self, p):
-        dist = ((p.x - self.x) ** 2 + (p.y - self.y )** 2) ** .5
+        dist = ((p.x - self.x) ** 2 + (p.y - self.y) ** 2) ** .5
         return round(dist, 2)
 
     def get_distance_from_start(self):
@@ -87,12 +89,14 @@ class Point(object):
             return p2
         else:
             return p3
+
     def halfway_to(self, p2):
-        xChange = self.x - p2.x
-        yChange = self.y - p2.y
-        self.x += xChange/2
-        self.y += yChange/2
-        return Point(self.x, self.y)
+        p = Point(0, 0)
+        xChange = (p2.x - self.x)/2
+        yChange = (p2.y - self.y)/2
+        p.x = self.x + xChange
+        p.y = self.y + yChange
+        return p
 ########################################################################
 # NOTE: For ALL of the methods that you implement, the method is allowed
 # to have additional side effects as needed by it and/or other methods.
@@ -444,6 +448,7 @@ def run_test_move_to():
     print('Expected for p2: Point(0, 222)')
     print('Actual for p2:  ', p2)
 
+
 def run_test_move_by():
     """
     Tests the   move_by   method of the Point class.
@@ -531,6 +536,7 @@ def run_test_move_by():
     print('Actual for p1:  ', p1)
     print('Expected for p2: Point(150, 320)')
     print('Actual for p2:  ', p2)
+
 
 def run_test_get_number_of_moves_made():
     """
@@ -760,6 +766,7 @@ def run_test_get_distance_from():
     print('Expected p2 to p4: 9.0')
     print('Actual   p2 to p4:', p2.get_distance_from(p4))
 
+
 def run_test_get_distance_from_start():
     """
     Tests the   get_distance_from_START   method of the Point class.
@@ -845,6 +852,7 @@ def run_test_get_distance_from_start():
     print('p2 from start to (1, 1), should be about 0.0')
     print('Actually is:', p2.get_distance_from_start())
 
+
 def run_test_get_distance_traveled():
     """
     Tests the   get_distance_traveled   method of the Point class.
@@ -924,6 +932,7 @@ def run_test_get_distance_traveled():
     print('Actual:', p3.get_distance_traveled())
     print('Expected p4 has now traveled 100.0')
     print('Actual:', p4.get_distance_traveled())
+
 
 def run_test_closer_to():
     """
@@ -1009,7 +1018,6 @@ def run_test_closer_to():
     print('Actual:  ', p1.closer_to(p4, p5) is p5)
 
 
-
 def run_test_halfway_to():
     """
     Tests the   halfway_to   method of the Point class.
@@ -1057,7 +1065,7 @@ def run_test_halfway_to():
 
     """
     # ------------------------------------------------------------------
-    # TODO: 13.  Follow the same instructions as in TODO 3 above,
+    # Done: 13.  Follow the same instructions as in TO mDO 3 above,
     #    but for the  halfway_to  method specified above.
     # ------------------------------------------------------------------
     print()
@@ -1090,6 +1098,7 @@ def run_test_halfway_to():
     print()
     print('Should be: Point(-10.0, 20.0)')
     print('Actual is:', p3.halfway_to(p3))
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
